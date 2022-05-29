@@ -49,7 +49,7 @@ services:
     volumes:
       - seafile_data:/shared   # Requested, specifies the path to Seafile data persistent store.
     environment:
-      - DB_HOST=$DB_MARIADB_HOST
+      - DB_HOST=db
       - DB_ROOT_PASSWD=$DB_MARIADB_PASSWORD
       - TIME_ZONE=$APP_TIME_ZONE # Optional, default is UTC. Should be uncomment and set to your local time zone.
       - SEAFILE_ADMIN_EMAIL=$APP_USER # Specifies Seafile admin user, default is 'me@example.com'

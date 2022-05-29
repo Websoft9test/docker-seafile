@@ -51,11 +51,11 @@ services:
     environment:
       - DB_HOST=db
       - DB_ROOT_PASSWD=$DB_MARIADB_PASSWORD
-      - TIME_ZONE=$APP_TIME_ZONE # Optional, default is UTC. Should be uncomment and set to your local time zone.
-      - SEAFILE_ADMIN_EMAIL=$APP_USER # Specifies Seafile admin user, default is 'me@example.com'
+      - TIME_ZONE=$APP_TIME_ZONE
+      - SEAFILE_ADMIN_EMAIL=$APP_USER
       - SEAFILE_ADMIN_PASSWORD=$APP_PASSWORD    
-      - SEAFILE_SERVER_LETSENCRYPT=false   # Whether to use https or not
-      - SEAFILE_SERVER_HOSTNAME=$DOMAIN # Specifies your host name if https is enabled
+      - SEAFILE_SERVER_LETSENCRYPT=false
+      - SEAFILE_SERVER_HOSTNAME=$APP_HOST_URL
     depends_on:
       - db
       - memcached

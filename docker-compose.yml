@@ -36,7 +36,9 @@ services:
           memory: 2G
     volumes:
       - elasticsearch_data:/usr/share/elasticsearch/data  # Requested, specifies the path to Elasticsearch data persistent store.
-          
+    profiles:
+      - pro
+      
   seafile:
     image: $APP_REPO:$APP_VERSION
     container_name: $APP_NAME

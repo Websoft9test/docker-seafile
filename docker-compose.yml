@@ -2,25 +2,25 @@ version: '3.8'
 services:
   db:
     image: mariadb:$DB_MARIADB_VERSION
-    container_name: $APP_CONTAINER_NAME-mysql
+    container_name: $APP_NAME-db
     restart: always
     ports:
       - $DB_MARIADB_PORT:3306
     environment:
-      - MYSQL_ROOT_PASSWORD=$DB_MARIADB_PASSWORD  # Requested, set the root's password of MySQL service.
+      - MYSQL_ROOT_PASSWORD=$DB_MARIADB_PASSWORD
       - MYSQL_LOG_CONSOLE=true
     volumes:
-      - $VOLUMES_PATH_PREFIX/mysql_data:/var/lib/mysql  # Requested, specifies the path to MySQL data persistent store.
+      - mysql_data:/var/lib/mysql
 
   memcached:
     image: memcached:$DB_MEMCACHED_VERSION
-    container_name: $APP_CONTAINER_NAME-memcached
+    container_name: $APP_NAME-memcached
     restart: always
     entrypoint: memcached -m 256
 
   elasticsearch:
     image: seafileltd/elasticsearch-with-ik:$DB_ELASTICSEARCH_VERSION
-    container_name: $APP_CONTAINER_NAME-elasticsearch
+    container_name: $APP_NAME-elasticsearch
     restart: always
     environment:
       - discovery.type=single-node
@@ -35,11 +35,11 @@ services:
         limits:
           memory: 2G
     volumes:
-      - $VOLUMES_PATH_PREFIX/elasticsearch_data:/usr/share/elasticsearch/data  # Requested, specifies the path to Elasticsearch data persistent store.
+      - elasticsearch_data:/usr/share/elasticsearch/data  # Requested, specifies the path to Elasticsearch data persistent store.
           
   seafile:
     image: docker.seafile.top/seafileltd/seafile-pro-mc:$APP_VERSION
-    container_name: $APP_CONTAINER_NAME
+    container_name: $APP_NAME
     restart: always
     ports:
       - "$APP_PORT:80"
@@ -61,4 +61,4 @@ services:
 
 networks:
   default:
-      name: "$APP_NETWORK"
+      name: "$APP_NAME"

@@ -13,7 +13,7 @@ services:
       - mysql_data:/var/lib/mysql
 
   memcached:
-    image: memcached:$DB_MEMCACHED_VERSION
+    image: memcached:db
     container_name: $APP_NAME-memcached
     restart: always
     entrypoint: memcached -m 256

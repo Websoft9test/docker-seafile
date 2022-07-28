@@ -40,7 +40,7 @@ services:
       - pro
       
   seafile-pro:
-    image: $APP_REPO:$APP_VERSION
+    image: docker.seafile.top/seafileltd/seafile-pro-mc:$APP_VERSION
     container_name: $APP_NAME
     restart: always
     ports:
@@ -64,7 +64,7 @@ services:
       - pro
 
   seafile-ce:
-    image: $APP_REPO:$APP_VERSION
+    image: seafileltd/seafile-mc:$APP_VERSION
     container_name: $APP_NAME
     restart: always
     ports:

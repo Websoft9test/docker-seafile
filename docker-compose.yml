@@ -55,7 +55,7 @@ services:
       - SEAFILE_ADMIN_EMAIL=$APP_USER
       - SEAFILE_ADMIN_PASSWORD=$APP_PASSWORD    
       - SEAFILE_SERVER_LETSENCRYPT=false
-      - SEAFILE_SERVER_HOSTNAME=$APP_HOST_URL
+      - SEAFILE_SERVER_HOSTNAME=$APP_URL
     depends_on:
       - db
       - memcached
@@ -79,7 +79,7 @@ services:
       - SEAFILE_ADMIN_EMAIL=$APP_USER
       - SEAFILE_ADMIN_PASSWORD=$APP_PASSWORD    
       - SEAFILE_SERVER_LETSENCRYPT=false
-      - SEAFILE_SERVER_HOSTNAME=$APP_HOST_URL
+      - SEAFILE_SERVER_HOSTNAME=$APP_URL
     depends_on:
       - db
       - memcached
